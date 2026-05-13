@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_code = '''<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -686,6 +686,17 @@
             font-size: 0.95rem;
         }
 
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary);
+        }
+
         .map-container {
             border-radius: 20px;
             overflow: hidden;
@@ -879,8 +890,8 @@
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             display: flex;
@@ -889,12 +900,23 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s;
+            font-size: 1.3rem;
         }
 
         .social-links a:hover {
             background: var(--secondary);
             color: var(--dark);
             transform: translateY(-5px);
+        }
+
+        .social-links a.whatsapp:hover {
+            background: #25D366;
+            color: white;
+        }
+
+        .social-links a.facebook:hover {
+            background: #1877F2;
+            color: white;
         }
 
         .footer-links h4 {
@@ -1074,6 +1096,13 @@
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Phone clickable style */
+        .phone-link {
+            direction: ltr;
+            display: inline-block;
+            unicode-bidi: plaintext;
         }
     </style>
 </head>
@@ -1303,10 +1332,17 @@
                     </div>
                 </div>
                 <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>رقم التليفون</h4>
+                        <p><a href="tel:+201273667385" class="phone-link">01273667385</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <div>
                         <h4>البريد الإلكتروني</h4>
-                        <p>abdelgawadessam111@gmail.com</p>
+                        <p><a href="mailto:abdelgawadessam111@gmail.com">abdelgawadessam111@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1369,11 +1405,12 @@
                 <h3>التقوى للمقاولات</h3>
                 <p>نبني المستقبل بأيدٍ محترفة منذ 2014. نؤمن أن كل مشروع هو فرصة لنصنع أثرًا يدوم.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/201273667385" target="_blank" class="whatsapp" title="واتساب">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="facebook" title="فيسبوك">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
                 </div>
             </div>
             <div class="footer-links">
@@ -1397,6 +1434,7 @@
             <div class="footer-links">
                 <h4>تواصل معنا</h4>
                 <ul>
+                    <li><a href="tel:+201273667385">01273667385</a></li>
                     <li><a href="mailto:abdelgawadessam111@gmail.com">abdelgawadessam111@gmail.com</a></li>
                     <li><a href="#">طنطا، الغربية</a></li>
                     <li><a href="#">السبت – الخميس: ٨ص – ٦م</a></li>
@@ -1657,4 +1695,4 @@
         });
     </script>
 </body>
-</html>
+</html>'''
