@@ -182,11 +182,55 @@
         .spec-card:hover::before { transform: scaleX(1); }
         .spec-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .spec-icon {
-            width: 70px; height: 70px; background: var(--primary); border-radius: 15px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 25px; font-size: 1.8rem; color: var(--secondary); transition: all 0.3s;
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
         }
-        .spec-card:hover .spec-icon { background: var(--secondary); color: var(--dark); transform: rotate(10deg) scale(1.1); }
+
+        .spec-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transform: scale(0);
+            border-radius: 15px;
+            transition: transform 0.4s;
+            z-index: 0;
+        }
+
+        .spec-card:hover .spec-icon::before {
+            transform: scale(1);
+        }
+
+        .spec-icon i {
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s;
+        }
+
+        .spec-card:hover .spec-icon {
+            transform: rotate(15deg) scale(1.15);
+            box-shadow: 0 10px 25px rgba(201,168,76,0.4);
+        }
+
+        .spec-card:hover .spec-icon i {
+            color: var(--dark);
+            transform: scale(1.1);
+        }
+
         .spec-card h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 15px; }
         .spec-card p { color: #666; line-height: 1.8; }
         .spec-number {
@@ -417,7 +461,6 @@
         <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
     </section>
 
-    <!-- ✅ Stats - 16 مشروع -->
     <div class="stats-section">
         <div class="stats-container">
             <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
@@ -429,7 +472,7 @@
                 <div class="stat-label">مشروع منفذ</div>
             </div>
             <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                <span class="stat-number" data-target="50">0</span>
+                <span class="stat-number" data-target="15">0</span>
                 <div class="stat-label">مهندس متخصص</div>
             </div>
             <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
@@ -569,7 +612,6 @@
         <img id="lightboxImg" src="" alt="">
     </div>
 
-    <!-- ✅ Contact with Formspree -->
     <section id="contact" style="background: rgba(0,0,0,0.02);">
         <div class="section-header" data-aos="fade-up">
             <h2>ابدأ مشروعك معنا اليوم</h2>
@@ -799,7 +841,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // ✅ Formspree Integration
         async function handleSubmit(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
